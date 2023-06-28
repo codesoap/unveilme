@@ -1,0 +1,52 @@
+.Dd $Mdocdate: June 28 2023 $
+.Dt UNVEILME 1
+.Os
+.Sh NAME
+.Nm unveilme
+.Nd execute a program while restricting its filesystem view
+.Sh SYNOPSIS
+.Nm unveilme
+.Ar <path-permissions>
+.Ar program
+.Op Ar argument ...
+.Nm unveilme
+.Ar -p <path-permissions> ...
+.Ar program
+.Op Ar argument ...
+.Sh DESCRIPTION
+.Nm
+runs the specified program while restricting it's filesystem view. It
+does this by calling
+.Xr unveil 2 ,
+passing
+.Ar path-permissions
+to its  
+.Ar path
+and
+.Ar permissions
+arguments.
+
+Further calls to
+.Xr unveil 2
+by
+.Ar program
+are disabled.
+
+.Ar path-permissions
+are composed of a path followed by a colon and the permissions. See
+.Xr unveil 2
+for a list of these permissions.
+.Sh EXAMPLE
+.Pp
+.Nm
+/tmp:r ls /tmp
+.Pp
+.Nm
+-p /tmp:r -p /root:rwc cp /tmp/foo /root
+.Pp
+.Nm
+/tmp:r pledgeme "stdio rpath getpw tty" ls /tmp
+.Pp
+.Sh SEE ALSO
+.Xr unveil 2 ,
+.Xr pledgeme 1
