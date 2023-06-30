@@ -1,3 +1,5 @@
+Work in progress! This is not a working tool right now.
+
 NAME
      unveilme – execute a program while restricting its filesystem view
 
@@ -16,11 +18,9 @@ DESCRIPTION
      permissions. See unveil(2) for a list of these permissions.
 
 EXAMPLE
-     unveilme /tmp:r ls /tmp
+     unveilme /usr/bin/printf:rx printf 'test\n'
 
-     unveilme -p /tmp:r -p /root:rwc cp /tmp/foo /root
-
-     unveilme /tmp:r pledgeme "stdio rpath getpw tty" ls /tmp
+     unveilme -p /bin/ls:rx -p /tmp:r ls /tmp
 
 SEE ALSO
      unveil(2), pledgeme(1)

@@ -39,13 +39,10 @@ for a list of these permissions.
 .Sh EXAMPLE
 .Pp
 .Nm
-/tmp:r ls /tmp
+/usr/bin/printf:rx printf 'test\\n'
 .Pp
 .Nm
--p /tmp:r -p /root:rwc cp /tmp/foo /root
-.Pp
-.Nm
-/tmp:r pledgeme "stdio rpath getpw tty" ls /tmp
+-p /bin/ls:rx -p /tmp:r ls /tmp
 .Pp
 .Sh SEE ALSO
 .Xr unveil 2 ,
