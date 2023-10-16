@@ -1,4 +1,5 @@
-Work in progress! This is not a working tool right now.
+I have been informed, that unveil does not work for subprocesses by
+design. Thus this project is futile and I will archive it.
 
 NAME
      unveilme – execute a program while restricting its filesystem view
